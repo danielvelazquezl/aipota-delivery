@@ -5,7 +5,7 @@ class CreateOffers < ActiveRecord::Migration[5.2]
       t.date :end_date
       t.string :description
       t.integer :discount
-      t.refences :supermarket
+      t.references :supermarket, foreign_key: true
 
       t.timestamps
     end

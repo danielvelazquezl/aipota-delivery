@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :user
       t.integer :total
       t.string :location
-      t.references :supermarker, foreign_key: true
+      t.references :supermarket, foreign_key: true
       t.date :order_date
       t.string :status
 
