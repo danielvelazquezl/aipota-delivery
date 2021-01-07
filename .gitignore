@@ -68,3 +68,9 @@ yarn-debug.log*
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# RubyMine files
+.idea/
+
+# schema
+db/schema.rb
