@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+.my-button-primary{
+  background: #1ACC8D;
+  border: 0.5px solid #1ACC8D;
+  border-radius: 20px;
+}
+
+.my-background {
+  background-image:
+          /* top, transparent red */
+          linear-gradient(
+                          rgba(14, 19, 149, 0.91),
+                          rgba(14, 19, 149, 0.91)
+          ),
+            /* your image */
+          url('/assets/hero-bg.jpg');
+}
