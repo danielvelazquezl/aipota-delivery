@@ -1,0 +1,36 @@
+<%= form_with(model: supermarket, local: true) do |form| %>
+  <% if supermarket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(supermarket.errors.count, "error") %> prohibited this supermarket from being saved:</h2>
+
+      <ul>
+        <% supermarket.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <%= form.text_field :name, class: "form-control", required: "required" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label>Direccion:</label>
+        <%= form.text_field :direction, class: "form-control", required: "required" %>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit 'Guardar', class: "btn btn-success" %>
+    <%= link_to 'Atras', supermarkets_path %>
+  </div>
+<% end %>
