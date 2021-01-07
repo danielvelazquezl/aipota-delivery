@@ -21,6 +21,13 @@
   border-radius: 20px;
 }
 
-.my-background{
-  background: rgba(14, 19, 149, 0.91);
+.my-background {
+  background-image:
+          /* top, transparent red */
+          linear-gradient(
+                          rgba(14, 19, 149, 0.91),
+                          rgba(14, 19, 149, 0.91)
+          ),
+            /* your image */
+          url('/assets/hero-bg.jpg');
 }
