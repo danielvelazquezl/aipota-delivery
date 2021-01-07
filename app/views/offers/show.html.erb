@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Supermercado:</strong>
+  <%= @offer.supermarket_name %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @offer.description %>
+</p>
+
+<p>
+  <strong>Descuento:</strong>
+  <%= @offer.discount %>
+</p>
+
+<p>
+  <strong>Desde:</strong>
+  <%= @offer.start_date %>
+</p>
+
+<p>
+  <strong>Hasta:</strong>
+  <%= @offer.end_date %>
+</p>
+
+<% @offer.offer_details.each do |detail| %>
+  <tr>
+    <td class="text-center"><%= detail.product_description%></td>
+  </tr>
+<% end %>
+
+<%= link_to 'Atras', offers_path %>
