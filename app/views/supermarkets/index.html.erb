@@ -1,29 +1,35 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
+<%#
+  Filterrific adds the `form_for_filterrific` view helper:
+  * adds dom id 'filterrific_filter'
+  * applies javascript behaviors:
+      * AJAX form submission on change
+      * AJAX spinner while AJAX request is being processed
+  * sets form_for options like :url, :method and input name prefix
+%>
+<%= form_for_filterrific @filterrific do |f| %>
 
-<h1>Lista de Supermercados</h1>
+  <div class="container">
+    <form>
+      <div class="row justify-content-center">
+        <div class="col-8 col-md-6 col-lg-8">
+          <%= f.text_field :search_query, class: 'form-control', placeholder: 'Busca un super' %>
+        </div>
+        <div class="col-2 col-md-2 col-lg-2">
+          <button class="btn btn-primary">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 
-<table class="table">
-  <thead>
-  <tr>
-    <th>Nombre</th>
-    <th>Direccion</th>
-    <th colspan="1"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @supermarkets.each do |superm| %>
-    <tr>
-      <td><%= superm.name %></td>
-      <td><%= superm.direction %></td>
-      <td><%= link_to 'Ver', superm %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to new_supermarket_path do %>
-  <button class="btn btn-info">Nuevo Supermercado</button>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%#= render_filterrific_spinner %>
 <% end %>
+
+<%= render(
+      partial: 'supermarkets/list',
+      locals: { supermarkets: @supermarkets }
+    ) %>
