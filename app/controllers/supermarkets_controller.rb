@@ -2,7 +2,20 @@ class SupermarketsController < ApplicationController
   before_action :set_supermarket, only: [:show, :edit, :update, :destroy]
   # GET /supermarkets
   def index
-    @supermarkets = Supermarket.all
+    @filterrific = initialize_filterrific(
+      Supermarket,
+      params[:filterrific],
+      default_filter_params: {},
+      available_filters: [:search_query],
+      sanitize_params: true
+    ) || nil
+
+    @supermarkets = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /supermarkets/1
@@ -56,6 +69,7 @@ class SupermarketsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_supermarket
     @supermarket = Supermarket.find(params[:id])
