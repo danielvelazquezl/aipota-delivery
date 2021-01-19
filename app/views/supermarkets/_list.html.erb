@@ -1,0 +1,22 @@
+<%# app/views/students/_list.html.erb %>
+<div id="filterrific_results">
+
+  <!--  <div>-->
+  <%#= page_entries_info students # provided by will_paginate %>
+  <!--  </div>-->
+
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Direcci&oacute;n</th>
+    </tr>
+    <% supermarkets.each do |s| %>
+      <tr>
+        <td><%= link_to(s.name, supermarket_path(s)) %></td>
+        <td><%= s.direction %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%#= will_paginate students # provided by will_paginate %>
