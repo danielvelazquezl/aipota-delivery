@@ -76,3 +76,4 @@ yarn-debug.log*
 db/schema.rb
 # Gemfile.lock
 Gemfile.lock
+*.lock
