@@ -68,3 +68,5 @@ gem 'jquery-rails'
 gem 'filterrific'
 # will_paginate is a pagination library
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'bootstrap-slider-rails'
