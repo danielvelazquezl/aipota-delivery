@@ -7,28 +7,26 @@
       * AJAX spinner while AJAX request is being processed
   * sets form_for options like :url, :method and input name prefix
 %>
-<%= form_for_filterrific @filterrific do |f| %>
-
+<%= render partial: "welcome/navbar" %>
+<div class="jumbotron bg-white my-0 py-3 py-lg-5">
   <div class="container">
-    <form>
-      <div class="row justify-content-center">
-        <div class="col-8 col-md-6 col-lg-8">
-          <%= f.text_field :search_query, class: 'form-control', placeholder: 'Busca un super' %>
+    <%= form_for_filterrific @filterrific do |f| %>
+      <form>
+        <div class="row justify-content-center">
+          <div class="col-8 col-md-6 col-lg-8 px-0">
+            <%= f.text_field :search_query, class: 'form-control', placeholder: 'Busca un super',
+                             id: 'main-search-input' %>
+          </div>
+          <div class="col-2 col-md-1 col-lg-1 px-0">
+            <a href="#" class="btn btn-block btn-aipota-primary text-white" id="main-search-button">
+              <i class="bi bi-search"></i>
+            </a>
+          </div>
         </div>
-        <div class="col-2 col-md-2 col-lg-2">
-          <button class="btn btn-primary">
-            <i class="bi bi-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+      </form>
+    <% end %>
   </div>
-
-
-  <%# add an automated spinner to your form when the list is refreshed %>
-  <%#= render_filterrific_spinner %>
-<% end %>
-
+</div>
 <%= render(
       partial: 'supermarkets/list',
       locals: { supermarkets: @supermarkets }
