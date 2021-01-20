@@ -21,7 +21,7 @@
   border-radius: 20px;
 }
 
-.my-background {
+.my-background-image {
   background-image:
           /* top, transparent red */
           linear-gradient(
@@ -32,9 +32,19 @@
           url('/assets/hero-bg.jpg');
 }
 
+<<<<<<< HEAD
 #footer {
   text-align: center;
   position:fixed;
   bottom:0px;
   width: 100%;
+=======
+.bg-aipota {
+  background-color: #0E1395;
+}
+
+#img-brand {
+  height: 40px;
+  width: 40px;
+>>>>>>> main
 }
