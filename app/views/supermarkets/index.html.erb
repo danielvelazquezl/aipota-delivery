@@ -1,0 +1,33 @@
+<!--<p id="notice"><%#= notice %></p>-->
+<%#
+  Filterrific adds the `form_for_filterrific` view helper:
+  * adds dom id 'filterrific_filter'
+  * applies javascript behaviors:
+      * AJAX form submission on change
+      * AJAX spinner while AJAX request is being processed
+  * sets form_for options like :url, :method and input name prefix
+%>
+<%= render partial: "welcome/navbar" %>
+<div class="jumbotron bg-white my-0 py-3 py-lg-5">
+  <div class="container">
+    <%= form_for_filterrific @filterrific do |f| %>
+      <form>
+        <div class="row justify-content-center">
+          <div class="col-8 col-md-6 col-lg-8 px-0">
+            <%= f.text_field :search_query, class: 'form-control', placeholder: 'Busca un super',
+                             id: 'main-search-input' %>
+          </div>
+          <div class="col-2 col-md-1 col-lg-1 px-0">
+            <a href="#" class="btn btn-block btn-aipota-primary text-white" id="main-search-button">
+              <i class="bi bi-search"></i>
+            </a>
+          </div>
+        </div>
+      </form>
+    <% end %>
+  </div>
+</div>
+<%= render(
+      partial: 'supermarkets/list',
+      locals: { supermarkets: @supermarkets }
+    ) %>

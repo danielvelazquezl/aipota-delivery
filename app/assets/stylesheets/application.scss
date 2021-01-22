@@ -12,16 +12,31 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-slider
  */
 @import "bootstrap";
 
 .my-button-primary{
-  background: #1ACC8D;
   border: 0.5px solid #1ACC8D;
   border-radius: 20px;
 }
 
-.my-background {
+.btn-aipota-primary {
+  background: #1ACC8D;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  flex-direction: column;
+}
+
+/*pagina inicial*/
+
+#my-background-principal{
+  height:100%;
+  width: 100%;
+  background-color: rgba(14, 19, 149, 0.91);
   background-image:
           /* top, transparent red */
           linear-gradient(
@@ -30,11 +45,49 @@
           ),
             /* your image */
           url('/assets/hero-bg.jpg');
+  background-attachment: fixed;
+  overflow: scroll;
 }
+
+.section-initial{
+  /* Rectangle 5 */
+
+  width: 90%;
+
+  background: rgba(110, 114, 237, 0.56);
+  border-radius: 20px;
+}
+
+hr.sub-section{
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 80%
+}
+
+.my-button{
+  background-color: #1ACC8D;
+  border-radius: 20px;
+  width: 80%;
+}
+
+/*fin de pagina inicial*/
 
 #footer {
   text-align: center;
   position:fixed;
   bottom:0px;
   width: 100%;
+}
+
+.bg-aipota {
+  background-color: #0E1395;
+}
+
+#img-brand {
+  height: 40px;
+  width: 40px;
+}
+
+a.navbar-brand {
+  margin-right: 0;
 }
