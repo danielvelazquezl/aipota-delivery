@@ -38,12 +38,10 @@ html, body {
   width: 100%;
   background-color: rgba(14, 19, 149, 0.91);
   background-image:
-          /* top, transparent red */
           linear-gradient(
                           rgba(14, 19, 149, 0.91),
                           rgba(14, 19, 149, 0.91)
           ),
-            /* your image */
           url('/assets/hero-bg.jpg');
   background-attachment: fixed;
   overflow: scroll;
@@ -71,6 +69,32 @@ hr.sub-section{
 }
 
 /*fin de pagina inicial*/
+
+/*lista de productos*/
+.my-background{
+  height:100%;
+  width: 100%;
+  background-image:
+          linear-gradient(
+                          rgba(255, 255, 255, 0.9),
+                          rgba(255, 255, 255, 0.9)
+          ),
+          url('/assets/hero-bg.jpg');
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+.my-background:before {
+  content:'';
+  position: absolute;
+  height:100%;
+  width: 100%;
+  background-color: rgba(14, 19, 149, 0.2);
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+/*fin lista de productos*/
 
 #footer {
   text-align: center;
