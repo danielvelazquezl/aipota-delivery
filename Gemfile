@@ -61,10 +61,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'bootstrap' ,  '~> 5.0.0.beta1'
+gem 'bootstrap', '~> 4.5', '>= 4.5.3'
 gem 'jquery-rails'
 
 # Filtering gem
 gem 'filterrific'
 # will_paginate is a pagination library
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'bootstrap-slider-rails'

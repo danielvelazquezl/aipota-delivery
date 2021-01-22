@@ -12,13 +12,17 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-slider
  */
 @import "bootstrap";
 
 .my-button-primary{
-  background: #1ACC8D;
   border: 0.5px solid #1ACC8D;
   border-radius: 20px;
+}
+
+.btn-aipota-primary {
+  background: #1ACC8D;
 }
 
 .my-background-image {
@@ -46,4 +50,8 @@
 #img-brand {
   height: 40px;
   width: 40px;
+}
+
+a.navbar-brand {
+  margin-right: 0;
 }
