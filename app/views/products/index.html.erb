@@ -1,8 +1,33 @@
 <p id="notice"><%= notice %></p>
-<%= render partial: "welcome/navbar" %>
 
+<div class="container-fluid">
+  <%= render partial: "welcome/navbar" %>
+</div>
+<!--FONDO DE LA APLICACION-->
 <div class="my-background">
+  <!--PADDING PARA QUE EL CONTENIDO NO SE OCULTE DEBAJO DEL NAVBAR-->
+  <div class="mt-5 pt-5 mt-sm-5 pt-sm-5 container text-center">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-6 col-sm-3 ">
+          <div class="container">
+            <div class="bg-white pb-1" style="padding-top: 5px; padding-bottom: 5px; border-radius: 5px"><%=image_tag("mayonesa.png", size: "73x74")%></div>
+            <div class="pb-1" style="text-align: right"><p class="text-blue"><%= product.price %> Gs.</p></div>
+            <div style="text-align: left"><p style="max-height: 30px"><%= product.description %></p></div>
+            <div class="container pb-1 pt-1">
+              <div class="row">
+                <button class="btn btn-sm col-3 col-sm-2 border-start border-dark" style="background-color: #e9ecef;">-</button>
+                <span class="col-6 col-sm-8 border-top border-bottom border-dark bg-white">1 Un.</span>
+                <button class="btn btn-sm col-3 col-sm-2 border border-dark" style="background-color: #e9ecef;">+</button>
+              </div>
+            </div>
+            <button class="btn btn-aipota-primary btn-sm text-white" style="width: 100%">Agregar <i class="bi bi-cart4"></i></button>
+          </div><br><br>
+        </div>
+      <% end %>
+    </div>
 
+  </div>
 </div>
 
 <!--h1>Lista de Productos</h1>
@@ -29,8 +54,5 @@
   </tbody>
 </table>
 
-<br>
+<br-->
 
-<%#= link_to new_product_path do %>
-  <button class="btn btn-info">Nuevo Producto</button-->
-<%# end %>
