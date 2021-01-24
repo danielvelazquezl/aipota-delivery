@@ -25,15 +25,82 @@
   background: #1ACC8D;
 }
 
-.my-background-image {
+html, body {
+  height: 100%;
+  margin: 0;
+  flex-direction: column;
+}
+
+/*pagina inicial*/
+
+#my-background-principal{
+  height:100%;
+  width: 100%;
+  background-color: rgba(14, 19, 149, 0.91);
   background-image:
-          /* top, transparent red */
           linear-gradient(
                           rgba(14, 19, 149, 0.91),
                           rgba(14, 19, 149, 0.91)
           ),
-            /* your image */
           url('/assets/hero-bg.jpg');
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+.section-initial{
+  /* Rectangle 5 */
+
+  width: 90%;
+
+  background: rgba(110, 114, 237, 0.56);
+  border-radius: 20px;
+}
+
+hr.sub-section{
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 80%
+}
+
+.my-button{
+  background-color: #1ACC8D;
+  border-radius: 20px;
+  width: 80%;
+}
+
+/*fin de pagina inicial*/
+
+/*lista de productos*/
+.my-background{
+  height:100%;
+  width: 100%;
+  background-image:
+          linear-gradient(
+                          rgba(255, 255, 255, 0.9),
+                          rgba(255, 255, 255, 0.9)
+          ),
+          url('/assets/hero-bg.jpg');
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+.my-background:before {
+  content:'';
+  position: absolute;
+  height:100%;
+  width: 100%;
+  background-color: rgba(14, 19, 149, 0.2);
+  background-attachment: fixed;
+  overflow: scroll;
+}
+
+/*fin lista de productos*/
+
+#footer {
+  text-align: center;
+  position:fixed;
+  bottom:0px;
+  width: 100%;
 }
 
 .bg-aipota {
