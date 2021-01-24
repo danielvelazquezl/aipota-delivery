@@ -14,8 +14,25 @@ class SupermarketsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js
     end
+  end
+
+  def search
+    @filterrific = initialize_filterrific(
+      Supermarket,
+      params[:filterrific],
+      default_filter_params: {},
+      available_filters: [:search_query],
+      sanitize_params: true
+    ) || nil
+
+    debug @supermarkets = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+    end
+
+    render :search, locals: { filterrific: @filterrific }
   end
 
   # GET /supermarkets/1

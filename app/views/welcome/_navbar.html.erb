@@ -10,12 +10,12 @@
           </button>
         </div>
         <!--Brand and icon-->
-        <div class="col col-sm-5">
+        <div class="col col-sm-3">
           <ul class="navbar-nav">
             <div class="container d-flex justify-content-start align-items-end">
               <li class="nav-item px-sm-2">
-                <h3 class="text-white text-center d-none d-sm-inline">Aipota Delivery</h3>
-                <h5 class="text-white text-center d-inline d-sm-none">Aipota Delivery</h5>
+                <%= link_to 'Aipota Delivery', root_path, :class => 'h3 text-white text-center d-none d-sm-inline' %>
+                <%= link_to 'Aipota Delivery', root_path, :class => 'h5 text-white text-center d-inline d-sm-none' %>
               </li>
             </div>
           </ul>
@@ -24,16 +24,16 @@
         <div class="col col-sm px-0 d-none d-sm-block">
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-0">
+              <!--TODO: quitar italica-->
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="bi bi-house-door"></i>
-                  <p class="d-none d-lg-inline">Inicio</p>
-                </a>
+                <i class="bi bi-house-door nav-link">
+                  <%= link_to 'Inicio', root_path, :class => 'nav-link d-none d-lg-inline font-weight-bold' %>
+                </i>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="bi bi-graph-up"></i>
-                  <p class="d-none d-lg-inline">Reportes</p>
+                  <p class="d-none d-lg-inline font-weight-bold">Reportes</p>
                 </a>
               </li>
             </ul>
@@ -50,21 +50,21 @@
             <li class="nav-item px-3">
               <a href="#" class="nav-link">
                 <i class="bi bi-bell"></i>
-                <p class="d-none d-lg-inline">Mensajes</p>
+                <p class="d-none d-lg-inline font-weight-bold">Mensajes</p>
               </a>
             </li>
             <!--Account section-->
             <li class="nav-item px-3">
               <a href="#" class="nav-link">
                 <i class="bi bi-person"></i>
-                <p class="d-none d-lg-inline">Cuenta</p>
+                <p class="d-none d-lg-inline font-weight-bold">Cuenta</p>
               </a>
             </li>
             <!--Max budget section-->
             <li class="nav-item px-3">
               <a href="#" class="nav-link">
                 <i class="bi bi-calculator-fill"></i>
-                <p class="d-none d-lg-inline">Presupuesto</p>
+                <p class="d-none d-lg-inline font-weight-bold">Presupuesto</p>
               </a>
             </li>
           </div>
