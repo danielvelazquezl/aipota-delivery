@@ -48,10 +48,7 @@ html, body {
 }
 
 .section-initial{
-  /* Rectangle 5 */
-
   width: 90%;
-
   background: rgba(110, 114, 237, 0.56);
   border-radius: 20px;
 }
@@ -94,7 +91,17 @@ hr.sub-section{
   overflow: scroll;
 }
 
+.text-blue{
+  color: #0E1395;
+}
+
 /*fin lista de productos*/
+
+#button-carrito {
+  position: fixed;
+  bottom: 0px;
+  border-radius: 50%;
+}
 
 #footer {
   text-align: center;
@@ -114,4 +121,23 @@ hr.sub-section{
 
 a.navbar-brand {
   margin-right: 0;
+}
+
+.my-background2{
+  /*height:100%;
+  width: 100%;*/
+  background-image:
+          linear-gradient(
+                          rgba(255, 255, 255, 0.9),
+                          rgba(255, 255, 255, 0.9)
+          ),
+          url('/assets/hero-bg.jpg');
+}
+
+.my-background2:before {
+  content:'';
+  position: absolute;
+  height:100%;
+  width: 100%;
+  background-color: rgba(14, 19, 149, 0.2);
 }
