@@ -34,7 +34,7 @@ en:
 
   enumerize:
     order:
-      order_status:
+      status:
         in_process: "En proceso"
         received: "Recibido"
         canceled: "Cancelado"

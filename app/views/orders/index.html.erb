@@ -7,25 +7,28 @@
   <div class="mt-5 pt-5 mt-sm-5 pt-sm-5 container text-center">
     <h2 class="text-blue ">Mis Pedidos</h2>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">Fecha</th>
-        <th scope="col">Negocio</th>
-        <th scope="col">Estado</th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.order_date %></td>
-        <td class="text-left"><%# order.supermarket_name %>La Familia</td>
-        <td><label class=" badge badge-pill badge-<%= get_status_color(order.status) %>"><%= order.status %></label></td>
-        <td></td>
-      </tr>
-      <%end %>
-      </tbody>
-    </table>
+    <div class="container-fluid">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Fecha</th>
+          <th scope="col">Negocio</th>
+          <th scope="col">Estado</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td class="pt-4"><%= order.order_date.strftime("%d-%m-%Y") %></td>
+          <td class="text-left pt-4"><% order.supermarket.name %></td>
+          <td class="pt-4"><label class=" badge badge-pill badge-<%= get_status_color(order.status) %>"><%= order.status.text %></label></td>
+          <td>
+              <button class="btn btn-sm btn-link text-color-icon-edit" title="Editar"><i class="bi bi-pencil-square"></i></button>
+          </tr>
+        <%end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
