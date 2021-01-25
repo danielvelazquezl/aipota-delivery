@@ -70,3 +70,5 @@ gem 'filterrific'
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'bootstrap-slider-rails'
+
+gem 'enumerize'
