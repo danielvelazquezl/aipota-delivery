@@ -5,9 +5,11 @@
           partial: "supermarkets/search_bar",
           locals: { filterrific: @filterrific, supermarkets: @supermarkets }
         ) %>
-    <%#= render(
-          partial: "supermarkets/carrousel_test"
-        ) %>
+    <div id="search-result">
+      <%= render(
+            partial: "supermarkets/list",
+            locals: { supermarkets: @supermarkets }
+          ) %>
+    </div>
   </div>
 </div>
-

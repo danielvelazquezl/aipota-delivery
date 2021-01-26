@@ -5,10 +5,12 @@
   <button type="button" class="btn my-button-primary text-white">Guardar</button>
 </div-->
 <div id="my-background-principal" class="mt-5 pt-5 mt-sm-5 pt-sm-5 text-white">
-    <div class="row justify-content-center pt-sm-4 pt-2">
-      <div class="col-sm-12 col-3 text-center"><%=image_tag("logo_aipota_delivery.png", size: "100x100")%></div>
-      <div class="col-sm-3 col-7 text-center pt-sm-4">&nbsp&nbsp&nbsp&nbspTe damos la bienvenida a nuestra aplicación, donde podras gestionar las compras de manera fácil y rápida desde cualquier lugar.</div>
+  <div class="row justify-content-center pt-sm-4 pt-2">
+    <div class="col-sm-12 col-3 text-center"><%= image_tag("logo_aipota_delivery.png", size: "100x100") %></div>
+    <div class="col-sm-3 col-7 text-center pt-sm-4">&nbsp&nbsp&nbsp&nbspTe damos la bienvenida a nuestra aplicación,
+      donde podras gestionar las compras de manera fácil y rápida desde cualquier lugar.
     </div>
+  </div>
 
   <br>
   <div class="row justify-content-center pt-sm-5">
@@ -24,22 +26,23 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-4 text-center">1. Elige un negocio</div>
-              <div class="col-4 text-center"><%=image_tag("elige_negocio.png", size: "80x80")%></div>
+              <div class="col-4 text-center"><%= image_tag("elige_negocio.png", size: "80x80") %></div>
             </div>
             <br>
             <div class="row justify-content-center">
               <div class="col-4 text-center">2. Elige los productos</div>
-              <div class="col-4 text-center"><%=image_tag("elige_productos.png", size: "80x80")%></div>
+              <div class="col-4 text-center"><%= image_tag("elige_productos.png", size: "80x80") %></div>
             </div>
             <br>
             <div class="row justify-content-center">
               <div class="col-4 text-center">3. Recibe el pedido</div>
-              <div class="col-4 text-center"><%=image_tag("recibe_delivery.png", size: "80x80")%></div>
+              <div class="col-4 text-center"><%= image_tag("recibe_delivery.png", size: "80x80") %></div>
             </div>
             <br><br>
           </div>
 
-          <button type="button" class="btn my-button text-white">Ingresar</button>
+          <%= link_to 'Ingresar', supermarkets_path, :class => "btn my-button text-white" %>
+          <!--button type="button" class="btn my-button text-white">Ingresar</button-->
 
           <br><br>
         </div>
@@ -59,17 +62,17 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-4 text-center">1. Recibe el pedido</div>
-              <div class="col-4 text-center"><%=image_tag("recibe_pedido.png", size: "80x80")%></div>
+              <div class="col-4 text-center"><%= image_tag("recibe_pedido.png", size: "80x80") %></div>
             </div>
             <br>
             <div class="row justify-content-center">
               <div class="col-4 text-center">2. Confirma los productos</div>
-              <div class="col-4 text-center"><%=image_tag("confirma_productos.png", size: "80x80")%></div>
+              <div class="col-4 text-center"><%= image_tag("confirma_productos.png", size: "80x80") %></div>
             </div>
             <br>
             <div class="row justify-content-center">
               <div class="col-4 text-center">3. Realiza el delivery</div>
-              <div class="col-4 text-center"><%=image_tag("realiza_delivery.png", size: "80x80")%></div>
+              <div class="col-4 text-center"><%= image_tag("realiza_delivery.png", size: "80x80") %></div>
             </div>
             <br><br>
           </div>
