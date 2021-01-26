@@ -1,8 +1,44 @@
 <p id="notice"><%= notice %></p>
-<%= render partial: "welcome/navbar" %>
 
+<div class="container-fluid">
+  <%= render partial: "welcome/navbar" %>
+</div>
+<!--FONDO DE LA APLICACION-->
 <div class="my-background">
-
+  <!--PADDING PARA QUE EL CONTENIDO NO SE OCULTE DEBAJO DEL NAVBAR-->
+  <div class="mt-5 pt-4 mt-sm-5 pt-sm-5 container text-center">
+    <h2 class="text-blue ">Super Seis</h2>
+    <div class="row pb-5">
+      <% @products.each do |product| %>
+        <div class="col-6 col-sm-3">
+          <div class="container">
+            <div class="bg-white pb-sm-3 pt-sm-3 pt-2 pb-2 rounded"><%=image_tag("mayonesa.png", size: "73x74")%></div>
+            <div class="pb-1" style="text-align: right"><p class="text-blue"><%= product.price %> Gs.</p></div>
+            <div style="text-align: left"><p style="max-height: 30px"><%= product.description %></p></div>
+            <div class="container pb-1 pt-1">
+              <div class="row">
+                <button class="btn btn-sm col-3 col-sm-2 border-start border-dark" style="background-color: #e9ecef;">-</button>
+                <span class="col-6 col-sm-8 border-top border-bottom border-dark bg-white">1 Un.</span>
+                <button class="btn btn-sm col-3 col-sm-2 border border-dark" style="background-color: #e9ecef;">+</button>
+              </div>
+            </div>
+            <button class="btn btn-aipota-primary btn-sm text-white btn-block">Agregar <i class="bi bi-cart4"></i></button>
+          </div><br><br>
+        </div>
+      <% end %>
+    </div>
+    <div class="row justify-content-center fixed-bottom pb-2 my-background2">
+      <div class="col-7 col-sm-6 pt-4" style="text-align: left;">
+        <h6 style="font-size: 14px;">Presupuesto máximo</h6>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-aipota" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+      <div class="col-3 col-sm-1 pt-2">
+        <button class="btn btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle" style="width: 73px; height: 73px"><i class="bi bi-cart4" style="font-size: 32px;"></i></button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--h1>Lista de Productos</h1>
@@ -29,8 +65,5 @@
   </tbody>
 </table>
 
-<br>
+<br-->
 
-<%#= link_to new_product_path do %>
-  <button class="btn btn-info">Nuevo Producto</button-->
-<%# end %>
