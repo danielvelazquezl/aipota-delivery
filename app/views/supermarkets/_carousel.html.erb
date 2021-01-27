@@ -36,7 +36,7 @@
                             <%= image_tag smk.image, class: 'img-fluid' %>
                           </div>
                           <div class="col-8 col-sm-9 pb-5">
-                            <%= link_to smk.name, products_path,
+                            <%= link_to smk.name, products_path(:supermarket_id => smk.id),
                                         :class => 'h5 card-title stretched-link',
                                         :style => 'text-decoration: none' %>
                             <p class="card-text"><%= smk.direction %></p>
@@ -93,7 +93,7 @@
                             <%= image_tag smk.image, class: 'img-fluid' %>
                           </div>
                           <div class="col-8 col-sm-9 pb-5">
-                            <%= link_to smk.name, products_path,
+                            <%= link_to smk.name, products_path(:super_id => smk.id),
                                                                  :class => 'h5 card-title stretched-link',
                                                                  :style => 'text-decoration: none' %>
                             <p class="card-text"><%= smk.direction %></p>
