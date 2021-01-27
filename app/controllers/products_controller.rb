@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   # GET /products
   def index
+    @supermarket = Supermarket.find(params[:supermarket_id])
     @products = Product.all
   end
 

@@ -26,10 +26,11 @@ class SupermarketsController < ApplicationController
       sanitize_params: true
     ) || nil
 
-    debug @supermarkets = @filterrific.find.page(params[:page])
+    @supermarkets = @filterrific.find.page(params[:page])
 
     respond_to do |format|
       format.html
+      format.js
     end
 
     render :search, locals: { filterrific: @filterrific }
@@ -94,6 +95,6 @@ class SupermarketsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def supermarket_params
-    params.require(:supermarket).permit(:name, :direction)
+    params.require(:supermarket).permit(:name, :direction, :image)
   end
 end
