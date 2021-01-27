@@ -29,6 +29,15 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label>Imagen:</label>
+        <%= form.text_field :image, class: "form-control", required: "required" %>
+      </div>
+    </div>
+  </div>
+
   <div>
     <%= form.submit 'Guardar', class: "btn btn-success" %>
     <%= link_to 'Atras', supermarkets_path %>
