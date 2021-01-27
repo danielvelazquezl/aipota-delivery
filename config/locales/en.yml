@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+  enumerize:
+    order:
+      status:
+        in_process: "En proceso"
+        received: "Recibido"
+        canceled: "Cancelado"
