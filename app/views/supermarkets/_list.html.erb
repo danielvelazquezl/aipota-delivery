@@ -10,10 +10,10 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-4 col-sm-3 p-2 text-black-50">
-                        <%= image_tag 'logo_aipota_delivery.png', class: 'img-fluid' %>
+                        <%= image_tag s.image, class: 'img-fluid' %>
                       </div>
                       <div class="col-8 col-sm-9">
-                        <%= link_to s.name, supermarket_path(s),
+                        <%= link_to s.name, products_path(:supermarket_id => s.id),
                                     :class => 'h5 card-title stretched-link',
                                     :style => 'text-decoration: none' %>
                         <p class="card-text"><%= s.direction %></p>
