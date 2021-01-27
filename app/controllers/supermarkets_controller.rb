@@ -36,16 +36,6 @@ class SupermarketsController < ApplicationController
     render :search, locals: { filterrific: @filterrific }
   end
 
-  def search_supermarket
-    @supermarkets = Supermarket.all
-    render :search_supermarket, locals: {supermarkets: @supermarkets}
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   # GET /supermarkets/1
   def show
   end
