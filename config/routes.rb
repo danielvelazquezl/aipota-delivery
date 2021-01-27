@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
 
-  resources :supermarkets do
-    collection do
-      get 'search_supermarket', :to => 'supermarkets#search_supermarket', :as => 'search_supermarket'
-    end
-  end
+  # supermarket routes
+  get 'supermarkets/search', to: 'supermarkets#search'
+  resources :supermarkets
+
   resources :orders
   resources :offers
   resources :products

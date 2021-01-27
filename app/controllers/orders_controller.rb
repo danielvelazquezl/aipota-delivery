@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   # GET /offers
   def index
-    @orders = Order.all
+    @orders = Order.all.order(order_date: :desc)
     render :index, locals: { orders: @orders }
   end
 
