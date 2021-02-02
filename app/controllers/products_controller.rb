@@ -19,6 +19,13 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def cart
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   # POST /products
   def create
     @product = Product.new(product_params)
@@ -57,6 +64,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])

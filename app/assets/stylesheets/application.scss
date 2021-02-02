@@ -16,7 +16,7 @@
  */
 @import "bootstrap";
 
-.my-button-primary{
+.my-button-primary {
   border: 0.5px solid #1ACC8D;
   border-radius: 20px;
 }
@@ -33,33 +33,32 @@ html, body {
 
 /*pagina inicial*/
 
-#my-background-principal{
-  height:100%;
+#my-background-principal {
+  height: 100%;
   width: 100%;
   background-color: rgba(14, 19, 149, 0.91);
-  background-image:
-          linear-gradient(
-                          rgba(14, 19, 149, 0.91),
-                          rgba(14, 19, 149, 0.91)
-          ),
-          url('/assets/hero-bg.jpg');
+  background-image: linear-gradient(
+                  rgba(14, 19, 149, 0.91),
+                  rgba(14, 19, 149, 0.91)
+  ),
+  url('/assets/hero-bg.jpg');
   background-attachment: fixed;
   overflow: scroll;
 }
 
-.section-initial{
+.section-initial {
   width: 90%;
   background: rgba(110, 114, 237, 0.56);
   border-radius: 20px;
 }
 
-hr.sub-section{
+hr.sub-section {
   border: 1px solid white;
   border-radius: 5px;
   width: 80%
 }
 
-.my-button{
+.my-button {
   background-color: #1ACC8D;
   border-radius: 20px;
   width: 80%;
@@ -68,30 +67,29 @@ hr.sub-section{
 /*fin de pagina inicial*/
 
 /*lista de productos*/
-.my-background{
-  height:100%;
+.my-background {
+  height: 100%;
   width: 100%;
-  background-image:
-          linear-gradient(
-                          rgba(255, 255, 255, 0.9),
-                          rgba(255, 255, 255, 0.9)
-          ),
-          url('/assets/hero-bg.jpg');
+  background-image: linear-gradient(
+                  rgba(255, 255, 255, 0.9),
+                  rgba(255, 255, 255, 0.9)
+  ),
+  url('/assets/hero-bg.jpg');
   background-attachment: fixed;
   overflow: scroll;
 }
 
 .my-background:before {
-  content:'';
+  content: '';
   position: absolute;
-  height:100%;
+  height: 100%;
   width: 100%;
   background-color: rgba(14, 19, 149, 0.2);
   background-attachment: fixed;
   overflow: scroll;
 }
 
-.text-blue{
+.text-blue {
   color: #0E1395;
 }
 
@@ -105,8 +103,8 @@ hr.sub-section{
 
 #footer {
   text-align: center;
-  position:fixed;
-  bottom:0px;
+  position: fixed;
+  bottom: 0px;
   width: 100%;
 }
 
@@ -123,30 +121,33 @@ a.navbar-brand {
   margin-right: 0;
 }
 
-.my-background2{
+.my-background2 {
   /*height:100%;
   width: 100%;*/
-  background-image:
-          linear-gradient(
-                          rgba(255, 255, 255, 0.9),
-                          rgba(255, 255, 255, 0.9)
-          ),
-          url('/assets/hero-bg.jpg');
+  background-image: linear-gradient(
+                  rgba(255, 255, 255, 0.9),
+                  rgba(255, 255, 255, 0.9)
+  ),
+  url('/assets/hero-bg.jpg');
 }
 
 .my-background2:before {
-  content:'';
+  content: '';
   position: absolute;
-  height:100%;
+  height: 100%;
   width: 100%;
   background-color: rgba(14, 19, 149, 0.2);
 }
 
-.text-color-icon-edit{
+.text-color-icon-edit {
   color: #FFA76E;
   font-size: 25px;
 }
 
-.bg-table-orders{
+.text-colot-secondary {
+  color: #1ACC8D;
+}
+
+.bg-table-orders {
   background-color: red;
 }

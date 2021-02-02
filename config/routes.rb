@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :offers
+
+  # products routes
+  get 'products/cart', to: 'products#cart'
   resources :products
 end

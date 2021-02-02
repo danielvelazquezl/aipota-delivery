@@ -12,6 +12,7 @@
 //
 //= require jquery3
 //= requiere popper
+//= require bootstrap
 //= requiere bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
