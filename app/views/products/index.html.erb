@@ -24,12 +24,6 @@
             </div>
             <button class="btn btn-aipota-primary btn-sm text-white btn-block">Agregar <i class="bi bi-cart4"></i>
             </button>
-            <%= link_to "Modal", products_cart_path, {
-              :remote => true,
-              'data-toggle' => 'modal',
-              'data-target' => '#cart-modal',
-              class: 'btn btn-primary'
-            } %>
           </div>
           <br><br>
         </div>
@@ -43,14 +37,19 @@
         </div>
       </div>
       <div class="col-3 col-sm-1 pt-2">
-        <button class="btn btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle" style="width: 73px; height: 73px">
+        <!--TODO no funciona el style porque se esta mostrando inline,habria que mostrar display-block o display-inline-block-->
+        <%= link_to products_cart_path, {
+          remote: true,
+          class: 'btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle',
+          'style' => 'width: 73px; height: 73px'
+        } do %>
           <i class="bi bi-cart4" style="font-size: 32px;"></i>
-        </button>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-<%= render partial: "products/cart" %>
+<div id="cart-modal-content"></div>
 
 
 <!--h1>Lista de Productos</h1>
