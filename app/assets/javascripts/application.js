@@ -19,3 +19,13 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-slider
+
+$(document).on('keyup', '.number-format', function (e) {
+    let input = $(event.target).val();
+    input = input.replace(/[\D\s\._\-]+/g, "");
+    input = input ? parseInt(input, 10) : 0;
+    $(event.target).val(function () {
+        let num = (input === 0) ? "" : input.toLocaleString("en-US");
+        return num.split(",").join(".");
+    });
+});

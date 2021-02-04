@@ -10,7 +10,7 @@
           </button>
         </div>
         <!--Brand and icon-->
-        <div class="col col-sm-3">
+        <div class="col col-sm-4">
           <ul class="navbar-nav">
             <div class="container d-flex justify-content-start align-items-end">
               <li class="nav-item px-sm-2">
@@ -68,8 +68,7 @@
               </a-->
               <%= link_to supermarkets_maximum_budget_path, {
                 remote: true,
-                class: 'nav-link',
-                'style' => 'width: 73px; height: 73px'
+                class: 'nav-link'
               } do %>
                 <i class="bi bi-calculator-fill"></i>
                 <p class="d-none d-lg-inline font-weight-bold">Presupuesto</p>
@@ -81,3 +80,5 @@
     </div>
   </div>
 </nav>
+
+<div id="maximum-budget-modal-content"></div>
