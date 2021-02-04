@@ -19,6 +19,20 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def cart
+    # si ya hay un id del carrito se busca en la BD
+    if session[:cart_id]
+      @cart = Cart.find(session[:cart_id])
+    else
+      # si no se crea y se asigna ese ID a la sesion de la APP
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # POST /products
   def create
     @product = Product.new(product_params)
@@ -57,6 +71,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])

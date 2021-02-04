@@ -12,7 +12,7 @@
       <% @products.each do |product| %>
         <div class="col-6 col-sm-3">
           <div class="container">
-            <div class="bg-white pb-sm-3 pt-sm-3 pt-2 pb-2 rounded"><%=image_tag("mayonesa.png", size: "73x74")%></div>
+            <div class="bg-white pb-sm-3 pt-sm-3 pt-2 pb-2 rounded"><%= image_tag("mayonesa.png", size: "73x74") %></div>
             <div class="pb-1" style="text-align: right"><p class="text-blue"><%= product.price %> Gs.</p></div>
             <div style="text-align: left"><p style="max-height: 30px"><%= product.description %></p></div>
             <div class="container pb-1 pt-1">
@@ -22,8 +22,10 @@
                 <button class="btn btn-sm col-3 col-sm-2 border border-dark" style="background-color: #e9ecef;">+</button>
               </div>
             </div>
-            <button class="btn btn-aipota-primary btn-sm text-white btn-block">Agregar <i class="bi bi-cart4"></i></button>
-          </div><br><br>
+            <button class="btn btn-aipota-primary btn-sm text-white btn-block">Agregar <i class="bi bi-cart4"></i>
+            </button>
+          </div>
+          <br><br>
         </div>
       <% end %>
     </div>
@@ -35,11 +37,20 @@
         </div>
       </div>
       <div class="col-3 col-sm-1 pt-2">
-        <button class="btn btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle" style="width: 73px; height: 73px"><i class="bi bi-cart4" style="font-size: 32px;"></i></button>
+        <!--TODO no funciona el style porque se esta mostrando inline,habria que mostrar display-block o display-inline-block-->
+        <%= link_to products_cart_path, {
+          remote: true,
+          class: 'btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle',
+          'style' => 'width: 73px; height: 73px'
+        } do %>
+          <i class="bi bi-cart4" style="font-size: 32px;"></i>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+<div id="cart-modal-content"></div>
+
 
 <!--h1>Lista de Productos</h1>
 
