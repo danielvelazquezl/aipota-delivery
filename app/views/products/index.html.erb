@@ -45,9 +45,13 @@
     <div class="row justify-content-center fixed-bottom pb-2 my-background2">
       <div class="col-7 col-sm-6 pt-4" style="text-align: left;">
         <h6 style="font-size: 14px;">Presupuesto máximo</h6>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped bg-aipota" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
+        <%= link_to supermarkets_maximum_budget_path, {
+          remote: true
+        } do %>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-aipota" role="progressbar" style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        <% end %>
       </div>
       <div class="col-3 col-sm-1 pt-2">
         <!--TODO no funciona el style porque se esta mostrando inline,habria que mostrar display-block o display-inline-block-->
