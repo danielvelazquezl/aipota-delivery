@@ -17,9 +17,22 @@
             <div style="text-align: left"><p style="max-height: 30px"><%= product.description %></p></div>
             <div class="container pb-1 pt-1">
               <div class="row">
-                <button class="btn btn-sm col-3 col-sm-2 border-start border-dark" style="background-color: #e9ecef;">-</button>
-                <span class="col-6 col-sm-8 border-top border-bottom border-dark bg-white">1 Un.</span>
-                <button class="btn btn-sm col-3 col-sm-2 border border-dark" style="background-color: #e9ecef;">+</button>
+                <button
+                  class="btn btn-sm col-3 col-sm-2 border-start border-dark subQuantityButton"
+                  style="background-color: #e9ecef;"
+                  id="subButton-<%= product.id %>"
+                >-
+                </button>
+                <span
+                  class="col-6 col-sm-8 border-top border-bottom border-dark bg-white"
+                  id="quantityLabel-<%= product.id %>"
+                >1 Un.</span>
+                <button
+                  class="btn btn-sm col-3 col-sm-2 border border-dark addQuantityButton"
+                  style="background-color: #e9ecef;"
+                  id="addButton-<%= product.id %>"
+                >+
+                </button>
               </div>
             </div>
             <button class="btn btn-aipota-primary btn-sm text-white btn-block">Agregar <i class="bi bi-cart4"></i>
@@ -49,32 +62,5 @@
     </div>
   </div>
 </div>
+<!--Place for cart modal-->
 <div id="cart-modal-content"></div>
-
-
-<!--h1>Lista de Productos</h1>
-
-<table class="table">
-  <thead>
-  <tr>
-    <th>Descripcion</th>
-    <th>Precio</th>
-    <th>Categoria</th>
-    <th colspan="1"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <%# @products.each do |product| %>
-    <tr>
-      <td><%#= product.description %></td>
-      <td><%#= product.price %></td>
-      <td><%#= product.category %></td>
-      <td><%#= link_to 'Ver', product %></td>
-    </tr>
-  <%# end %>
-  </tbody>
-</table>
-
-<br-->
-
