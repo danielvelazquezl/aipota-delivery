@@ -27,9 +27,9 @@
                   <tbody>
                   <% @cart.cart_items.each do |ci| %>
                     <tr>
-                      <th scope="col"><%= ci.product.description %></th>
-                      <td><%= ci.quantity %></td>
-                      <td><%= ci.quantity * ci.product.price %></td>
+                      <th scope="col" class="text-left"><%= ci.product.description %></th>
+                      <td class="text-center"><%= ci.quantity %></td>
+                      <td class="text-center"><%= ci.quantity * ci.product.price %></td>
                       <td>
                         <button class="btn btn-sm btn-outline-danger bi bi-trash"></button>
                       </td>
