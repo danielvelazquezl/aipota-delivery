@@ -62,10 +62,18 @@
             </li>
             <!--Max budget section-->
             <li class="nav-item px-3">
-              <a href="#" class="nav-link">
+              <!--a href="#" class="nav-link">
                 <i class="bi bi-calculator-fill"></i>
                 <p class="d-none d-lg-inline font-weight-bold">Presupuesto</p>
-              </a>
+              </a-->
+              <%= link_to supermarkets_maximum_budget_path, {
+                remote: true,
+                class: 'nav-link',
+                'style' => 'width: 73px; height: 73px'
+              } do %>
+                <i class="bi bi-calculator-fill"></i>
+                <p class="d-none d-lg-inline font-weight-bold">Presupuesto</p>
+              <% end %>
             </li>
           </div>
         </div>
