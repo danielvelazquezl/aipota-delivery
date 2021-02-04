@@ -25,14 +25,16 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <th scope="col">Jugo Liquido Baggio</th>
-                    <td>1</td>
-                    <td>2.500 Gs.</td>
-                    <td>
-                      <button class="btn btn-sm btn-outline-danger bi bi-trash"></button>
-                    </td>
-                  </tr>
+                  <% @cart.cart_items.each do |ci| %>
+                    <tr>
+                      <th scope="col"><%= ci.product.description %></th>
+                      <td><%= ci.quantity %></td>
+                      <td><%= ci.quantity * ci.product.price %></td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-danger bi bi-trash"></button>
+                      </td>
+                    </tr>
+                  <% end %>
                   </tbody>
                 </table>
               </div>
