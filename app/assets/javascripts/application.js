@@ -29,3 +29,9 @@ $(document).on('keyup', '.number-format', function (e) {
         return num.split(",").join(".");
     });
 });
+
+$(document).on('click', '#guardar-maximum-budget', function (e) {
+    let presupuesto = $('#maximum-budget').val();
+    localStorage.setItem("maximum-budget", presupuesto);
+    $('#maximum-budget-modal').modal('hide');
+});
