@@ -36,6 +36,12 @@ class SupermarketsController < ApplicationController
     render :search, locals: { filterrific: @filterrific }
   end
 
+  def maximum_budget
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /supermarkets/1
   def show
   end
