@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   # products routes
   get 'products/cart', to: 'products#cart'
+  get 'products/filter', to: 'products#filter'
   resources :products
 end

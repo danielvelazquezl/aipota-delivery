@@ -33,6 +33,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def filter
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # POST /products
   def create
     @product = Product.new(product_params)
