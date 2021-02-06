@@ -3,8 +3,9 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     supermarket = Supermarket.find(params[:supermarket_id])
+    last_checked = params[:last_checked].present? ? params[:last_checked] : []
     @products = params[:products] ? params[:products] : Product.all
-    render :index, locals: {supermarket: supermarket}
+    render :index, locals: {supermarket: supermarket, last_checked: last_checked}
   end
 
   # GET /products/1
@@ -47,12 +48,15 @@ class ProductsController < ApplicationController
     if params[:supermarket_id]
       supermarket = Supermarket.find(params[:supermarket_id])
     end
+    last_checked = params[:last_checked].present? ? params[:last_checked] : []
     if params[:filterrific]
+      last_checked = params[:filterrific][:with_category]
+      params[:last_checked] = last_checked
       params[:supermarket_id] ||= params[:filterrific][:supermarket_id]
       params[:products] ||= @products
-      return index, locals: {filterrific: @filterrific}
+      return index
     else
-      render :filter, locals: {filterrific: @filterrific, supermarket: supermarket}
+      render :filter, locals: {filterrific: @filterrific, supermarket: supermarket, last_checked: last_checked}
     end
 
   end

@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   )
 
   # filters on 'estate_type' attribute
-  scope :with_category, ->(category) {
-    where(category: [*category])
+  scope :with_category, lambda { |categories|
+    where(category: [*categories])
   }
 end

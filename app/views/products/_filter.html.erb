@@ -12,10 +12,13 @@
         <!--CONTENIDO-->
         <div class="form-group col-12">
           <div class="row has-search d-flex align-items-center results-block">
-            <%= f.select :with_category, filterrific.select_options[:with_category],
-                         {:include_blank => '- Todos -'},
-                         {:class => 'form-control'} %>
             <%= f.hidden_field :supermarket_id, value: supermarket.id %>
+            <% filterrific.select_options[:with_category].each do |c| %>
+              <div class="col-md-12">
+                <%= check_box_tag("filterrific[with_category][]",c[1], last_checked.include?(c[1])) %>
+                <%= c[0] %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

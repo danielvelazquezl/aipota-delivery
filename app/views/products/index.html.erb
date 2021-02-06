@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-6 col-sm-9"></div>
       <div class="col-6 col-sm-3">
-        <%= link_to products_filter_path(:supermarket_id => supermarket.id), { remote: true } do %>
+        <%= link_to products_filter_path(:supermarket_id => supermarket.id, :last_checked => last_checked), { remote: true } do %>
           <button class="btn btn-primary">Filtrar</button>
         <% end %>
       </div>
