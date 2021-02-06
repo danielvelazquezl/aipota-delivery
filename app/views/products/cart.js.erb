@@ -1,2 +1,22 @@
 $('#cart-modal-content').html("<%= j render 'products/cart', cart: @cart, layout: false %>");
+/**
+ * Read the local storage and insert the items to the cart table
+ */
+if (JSON.parse(localStorage.getItem('cart-items')) != null) {
+    for (let k in JSON.parse(localStorage.getItem('cart-items'))) {
+        $('#cart-table-body').append(
+            '<tr>' +
+            '<th scope="col" class="text-left">' + JSON.parse(localStorage.getItem('cart-items'))[k].description +
+            '</th>' +
+            '<td class="text-center">' + JSON.parse(localStorage.getItem('cart-items'))[k].quantity + '</td>' +
+            '<td class="text-center">' + JSON.parse(localStorage.getItem('cart-items'))[k].quantity *
+            JSON.parse(localStorage.getItem('cart-items'))[k].price + '</td>' +
+            '<td>' +
+            '<button class="btn btn-sm btn-outline-danger bi bi-trash"></button>' +
+            '</td>' +
+            '</tr>'
+        );
+    }
+}
+$('#maximum-budget-label').val(localStorage.getItem('maximum-budget'));
 $('#cart-modal').modal('show');
