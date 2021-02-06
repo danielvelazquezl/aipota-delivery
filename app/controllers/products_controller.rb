@@ -2,8 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   # GET /products
   def index
-    @supermarket = Supermarket.find(params[:supermarket_id])
-    @products = Product.all
+    supermarket = Supermarket.find(params[:supermarket_id])
+    @products = params[:products] ? params[:products] : Product.all
+    render :index, locals: {supermarket: supermarket}
   end
 
   # GET /products/1
@@ -34,9 +35,26 @@ class ProductsController < ApplicationController
   end
 
   def filter
-    respond_to do |format|
-      format.js
+    (@filterrific = initialize_filterrific(
+      Product,
+      params[:filterrific],
+      default_filter_params: {},
+      select_options: {
+        with_category: Product.product_category.options
+      },
+      )) || return
+    @products = @filterrific.find.page(params[:page])
+    if params[:supermarket_id]
+      supermarket = Supermarket.find(params[:supermarket_id])
     end
+    if params[:filterrific]
+      params[:supermarket_id] ||= params[:filterrific][:supermarket_id]
+      params[:products] ||= @products
+      return index, locals: {filterrific: @filterrific}
+    else
+      render :filter, locals: {filterrific: @filterrific, supermarket: supermarket}
+    end
+
   end
 
   # POST /products

@@ -38,3 +38,11 @@ en:
         in_process: "En proceso"
         received: "Recibido"
         canceled: "Cancelado"
+    product:
+      product_category:
+        drinks: "Bebidas"
+        meats: "Carnes"
+        fruits_and_vegetables: "Frutas/Verduras"
+        dairy: "Lacteos"
+        bakery: "Panaderia"
+        cleaning: "Limpieza"

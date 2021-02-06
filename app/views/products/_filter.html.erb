@@ -7,13 +7,23 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <%= form_for_filterrific filterrific do |f| %>
       <div class="modal-body">
         <!--CONTENIDO-->
+        <div class="form-group col-12">
+          <div class="row has-search d-flex align-items-center results-block">
+            <%= f.select :with_category, filterrific.select_options[:with_category],
+                         {:include_blank => '- Todos -'},
+                         {:class => 'form-control'} %>
+            <%= f.hidden_field :supermarket_id, value: supermarket.id %>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn my-button-primary text-color-secondary mx-1" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-aipota-primary my-button-primary text-white mx-1">Filtrar</button>
+        <%= f.submit 'Filtrar', :class=>'btn btn-aipota-primary my-button-primary text-white mx-1' %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
