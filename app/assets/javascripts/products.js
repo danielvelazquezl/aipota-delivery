@@ -27,12 +27,14 @@ getElementValue = element => {
 }
 
 $(function () {
+    // add quantity
     $('.addQuantityButton').click(() => {
         let spanElement = getSpanElement(this.activeElement.id);
         let spanValue = getElementValue(spanElement);
         // if the spanValue is less than 'maxQuantity' add 1
         spanValue < maxQuantity && spanElement.html(++spanValue);
     });
+    // subtract quantity
     $('.subQuantityButton').click(() => {
         let spanElement = getSpanElement(this.activeElement.id);
         let spanValue = getElementValue(spanElement);
@@ -42,5 +44,23 @@ $(function () {
         } else if (spanValue === 1) { // equal to 1, replace the html value with 'defaultMessage'
             spanElement.html(defaultMessage);
         }
+    });
+    // add item to cart
+    $('.addItem').click(() => {
+        let product_id = getIdFromText(this.activeElement.id);
+        let product = {
+            id: product_id,
+            description: $('#productDescription-' + product_id).html(),
+            price: getIdFromText($('#productPrice-' + product_id).html()),
+            quantity: getElementValue($('#quantityLabel-' + product_id))
+        }
+        let items = JSON.parse(localStorage.getItem('cart-items')) != null ?
+            JSON.parse(localStorage.getItem('cart-items')) : {};
+        items[product_id] = product;
+        localStorage.setItem('cart-items', JSON.stringify(items));
+    });
+    // clear the cart
+    $('#clearCart').click(() => {
+        localStorage.removeItem('cart-item');
     });
 });
