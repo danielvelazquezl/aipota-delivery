@@ -60,7 +60,8 @@ $(function () {
         localStorage.setItem('cart-items', JSON.stringify(items));
     });
     // clear the cart
+    // TODO no remueve el item del local storage
     $('#clearCart').click(() => {
-        localStorage.removeItem('cart-item');
+        localStorage.removeItem('cart-items');
     });
 });
