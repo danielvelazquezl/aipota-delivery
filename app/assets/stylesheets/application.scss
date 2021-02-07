@@ -156,18 +156,7 @@ a.navbar-brand {
   border: 1px solid #0E1395;
 }
 
-
-CSS
-.map-container{
-  overflow:hidden;
-  padding-bottom:56.25%;
-  position:relative;
-  height:0;
-}
-.map-container iframe{
-  left:0;
-  top:0;
-  height:100%;
-  width:100%;
-  position:absolute;
+#map2 {
+    ancho: 600px;
+    altura: 400px;
 }

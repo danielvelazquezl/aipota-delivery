@@ -16,6 +16,27 @@ class OrdersController < ApplicationController
     end
   end
 
+  # POST /orders
+  def create
+    @order = Order.new(order_params)
+    @orders = Order.all
+
+    @order.total = 15000
+    @order.supermarket_id = 1
+    @order.order_date = Time.now
+    @order.status = 'in_process'
+
+    respond_to do |format|
+      if @order.save
+        format.html { render :index }
+        format.json { render :index }
+      else
+        format.html { render :new }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_order
@@ -24,6 +45,8 @@ class OrdersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def order_params
-    params.require(:order).permit(:order_date, :status, :total, :location, :supermarket_id, order_details_attributes: [:id, :product_id, :order_id, :quantity, :sub_total, :available])
+    params.require(:order).permit(:user, :order_date, :status, :total, :location, :supermarket_id, :latitude, :longitude)
   end
 end
+
+#order_details_attributes: [:id, :product_id, :order_id, :quantity, :sub_total, :available]
