@@ -32,6 +32,9 @@ $(document).on('keyup', '.number-format', function (e) {
 
 $(document).on('click', '#guardar-maximum-budget', function (e) {
     let presupuesto = $('#maximum-budget').val();
+    let presupuesto_int = parseInt(presupuesto.toString().replace(".", ""))
+    let new_porcentaje = (localStorage.getItem('total') * 100) / presupuesto_int
     localStorage.setItem("maximum-budget", presupuesto);
+    $('.progress-bar').css('width', new_porcentaje+'%').attr('aria-valuemax', presupuesto_int);
     $('#maximum-budget-modal').modal('hide');
 });
