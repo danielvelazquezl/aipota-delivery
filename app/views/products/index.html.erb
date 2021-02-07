@@ -27,8 +27,10 @@
         <div class="col-6 col-sm-3">
           <div class="container">
             <div class="bg-white pb-sm-3 pt-sm-3 pt-2 pb-2 rounded"><%= image_tag("mayonesa.png", size: "73x74") %></div>
-            <div class="pb-1" style="text-align: right"><p class="text-blue"><%= product.price %> Gs.</p></div>
-            <div style="text-align: left"><p style="max-height: 30px"><%= product.description %></p></div>
+            <div class="pb-1" style="text-align: right">
+              <p class="text-blue" id="productPrice-<%= product.id %>"><%= product.price %> Gs.</p></div>
+            <div style="text-align: left">
+              <p style="max-height: 30px" id="productDescription-<%= product.id %>"><%= product.description %></p></div>
             <div class="container pb-1 pt-1">
               <div class="row">
                 <button
@@ -49,7 +51,9 @@
                 </button>
               </div>
             </div>
-            <button class="btn btn-aipota-primary btn-sm text-white btn-block">Agregar <i class="bi bi-cart4"></i>
+            <button
+              class="btn btn-aipota-primary btn-sm text-white btn-block addItem" id="addItemButton-<%= product.id %>">
+              Agregar<i class="bi bi-cart4"></i>
             </button>
           </div>
           <br><br>
@@ -72,7 +76,8 @@
         <%= link_to products_cart_path, {
           remote: true,
           class: 'btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle',
-          'style' => 'width: 73px; height: 73px'
+          'style' => 'width: 73px; height: 73px',
+          id: 'cart-button'
         } do %>
           <i class="bi bi-cart4" style="font-size: 32px;"></i>
         <% end %>
