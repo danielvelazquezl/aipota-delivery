@@ -57,7 +57,16 @@ $(function () {
         let items = JSON.parse(localStorage.getItem('cart-items')) != null ?
             JSON.parse(localStorage.getItem('cart-items')) : {};
         items[product_id] = product;
+        let total = 0;
+
+        Object.entries(items).forEach(function (record) {
+            total += (record[1].price * record[1].quantity);
+        });
+        localStorage.setItem('total', total);
         localStorage.setItem('cart-items', JSON.stringify(items));
+        let presupuesto_int = parseInt(localStorage.getItem("maximum-budget").toString().replace(".", ""))
+        let new_porcentaje = (total * 100) / presupuesto_int
+        $('.progress-bar').css('width', new_porcentaje+'%').attr('aria-valuenow', total);
     });
     // clear the cart
     // TODO no remueve el item del local storage
