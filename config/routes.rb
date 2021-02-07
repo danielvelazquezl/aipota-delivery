@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   get 'supermarkets/maximum_budget', to: 'supermarkets#maximum_budget'
   resources :supermarkets
 
+  # orders routes
+  get 'orders/map', to: 'orders#map'
   resources :orders
+
   resources :offers
 
   # products routes
