@@ -4,7 +4,6 @@
       document.addEventListener("DOMContentLoaded", initMap2);
   </script>
 <% end %>
-
 <%= form_with(model: order, local: true) do |form| %>
   <div class="form-group row justify-content-center">
     <label class="col-5 col-sm-2 text-left">Nombre y Apellido</label>
@@ -67,7 +66,7 @@
 
   <div class="row justify-content-end pt-4">
     <div class="col-auto">
-      <button type="button" class="btn my-button-primary text-color-secondary mx-1" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn my-button-primary text-color-secondary mx-1">Cancelar</button>
       <%= form.submit 'Comprar', class: "btn btn-aipota-primary my-button-primary text-white mx-1" %>
     </div>
   </div>
