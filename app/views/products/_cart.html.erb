@@ -1,11 +1,14 @@
 <div class="modal fade" id="cart-modal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" id="cart-modal-content">
+    <div class="modal-content">
       <div class="modal-header">
         <div class="container">
           <div class="row">
-            <div class="col">
-              <h5 class="text-blue text-center">Carrito</h5>
+            <div class="col-10">
+              <h5 class="offset-sm-2 text-blue text-center">Carrito</h5>
+            </div>
+            <div class="col-2">
+              <button class="close" data-dismiss="modal">&times;</button>
             </div>
           </div>
         </div>
@@ -24,17 +27,7 @@
                     <th scope="col"></th>
                   </tr>
                   </thead>
-                  <tbody>
-                  <% @cart.cart_items.each do |ci| %>
-                    <tr>
-                      <th scope="col" class="text-left"><%= ci.product.description %></th>
-                      <td class="text-center"><%= ci.quantity %></td>
-                      <td class="text-center"><%= ci.quantity * ci.product.price %></td>
-                      <td>
-                        <button class="btn btn-sm btn-outline-danger bi bi-trash"></button>
-                      </td>
-                    </tr>
-                  <% end %>
+                  <tbody id="cart-table-body">
                   </tbody>
                 </table>
               </div>
@@ -47,7 +40,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-8">Presupuesto M&aacute;ximo</div>
-                      <div class="col-4">25.000 Gs.</div>
+                      <div class="col-4" id="maximum-budget-label">25.000 Gs.</div>
                     </div>
                   </div>
                 </div>
@@ -68,8 +61,15 @@
           </div>
           <div class="row mt-4">
             <div class="container text-right">
-              <button type="button" class="btn my-button-primary text-color-secondary mx-1">Vaciar</button>
-              <button type="button" class="btn btn-aipota-primary my-button-primary text-white mx-1">Comprar</button>
+              <button
+                type="button"
+                class="btn my-button-primary text-color-secondary mx-1" id="clearCart"
+                data-dismiss="modal">Vaciar
+              </button>
+              <button
+                type="button"
+                class="btn btn-aipota-primary my-button-primary text-white mx-1">Comprar
+              </button>
             </div>
           </div>
         </div>
