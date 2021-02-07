@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   has_many :offer_details
   extend Enumerize
-  enumerize :product_category, in: [:drinks,
+  enumerize :product_category, in: [:warehouse,
+                                    :drinks,
                                     :meats,
                                     :fruits_and_vegetables,
                                     :dairy,
