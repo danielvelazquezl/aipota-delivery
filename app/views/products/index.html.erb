@@ -8,17 +8,19 @@
   <!--PADDING PARA QUE EL CONTENIDO NO SE OCULTE DEBAJO DEL NAVBAR-->
   <div class="mt-5 pt-5 mt-sm-5 pt-sm-5 container text-center">
     <h2 class="text-blue "><%= supermarket.name %></h2>
-    <div class="row justify-content-center">
-      <div class="col-9 col-sm-9">
-        <%= render(
-              partial: "products/search_bar",
-              locals: { supermarket: supermarket, last_checked: last_checked }
-            ) %>
-      </div>
-      <div class="col-3 col-sm-3">
-        <%= link_to products_filter_path(:supermarket_id => supermarket.id, :last_checked => last_checked), { remote: true } do %>
-          <button class="btn btn-primary">Filtrar</button>
-        <% end %>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-9 col-sm-9">
+          <%= render(
+                partial: "products/search_bar",
+                locals: { supermarket: supermarket, last_checked: last_checked }
+              ) %>
+        </div>
+        <div class="col-3 col-sm-3">
+          <%= link_to products_filter_path(:supermarket_id => supermarket.id, :last_checked => last_checked), { remote: true } do %>
+            <button class="btn btn-primary">Filtrar</button>
+          <% end %>
+        </div>
       </div>
     </div>
     <br>
