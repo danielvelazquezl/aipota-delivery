@@ -38,3 +38,4 @@ $(document).on('click', '#guardar-maximum-budget', function (e) {
     $('.progress-bar').css('width', new_porcentaje+'%').attr('aria-valuemax', presupuesto_int);
     $('#maximum-budget-modal').modal('hide');
 });
+
