@@ -21,8 +21,21 @@
   border-radius: 15px;
 }
 
+.my-button-primary2 {
+  border: 1.7px solid #1ACC8D;
+}
+
+.my-button-blue {
+  background: #0E1395;
+}
+
 .btn-aipota-primary {
   background: #1ACC8D;
+}
+
+.tam-button-cart {
+  width: 73px;
+  height: 73px
 }
 
 html, body {
@@ -112,6 +125,10 @@ hr.sub-section {
   background-color: #0E1395;
 }
 
+.bg-aipota-green {
+  background-color: #1ACC8D;
+}
+
 #img-brand {
   height: 40px;
   width: 40px;
@@ -163,4 +180,25 @@ a.navbar-brand {
 
 .cart-table-head {
   border-bottom: 0.5px solid #CCCCCC;
+}
+
+.button-cart {
+  position: relative;
+  font-size: 2em;
+  color: grey;
+  cursor: pointer;
+}
+.button-comment {
+  position: absolute;
+  font-size: 30px;
+  top: -34px;
+  color: white;
+  right: -20px;
+}
+.button-num {
+  position: absolute;
+  font-size: 16px;
+  top: -22px;
+  color: #0E1395;
+  right: -9px;
 }
