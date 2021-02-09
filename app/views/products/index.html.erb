@@ -8,17 +8,19 @@
   <!--PADDING PARA QUE EL CONTENIDO NO SE OCULTE DEBAJO DEL NAVBAR-->
   <div class="mt-5 pt-5 mt-sm-5 pt-sm-5 container text-center">
     <h2 class="text-blue "><%= supermarket.name %></h2>
-    <div class="row justify-content-center">
-      <div class="col-9 col-sm-9">
-        <%= render(
-              partial: "products/search_bar",
-              locals: { supermarket: supermarket, last_checked: last_checked }
-            ) %>
-      </div>
-      <div class="col-3 col-sm-3">
-        <%= link_to products_filter_path(:supermarket_id => supermarket.id, :last_checked => last_checked), { remote: true } do %>
-          <button class="btn btn-primary">Filtrar</button>
-        <% end %>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col col-sm-9">
+          <%= render(
+                partial: "products/search_bar",
+                locals: { supermarket: supermarket, last_checked: last_checked }
+              ) %>
+        </div>
+        <div class="col-auto">
+          <%= link_to products_filter_path(:supermarket_id => supermarket.id, :last_checked => last_checked), { remote: true } do %>
+            <button class="btn btn-aipota-primary text-white">Filtrar</button>
+          <% end %>
+        </div>
       </div>
     </div>
     <br>
@@ -28,7 +30,7 @@
           <div class="container">
             <div class="bg-white pb-sm-3 pt-sm-3 pt-2 pb-2 rounded"><%= image_tag(product.image, size: "73x74") %></div>
             <div class="pb-1" style="text-align: right">
-              <p class="text-blue" id="productPrice-<%= product.id %>"><%= product.price %> Gs.</p></div>
+              <p class="text-blue" id="productPrice-<%= product.id %>"><%= number_with_delimiter(product.price,delimiter: ".") %> Gs.</p></div>
             <div style="text-align: left">
               <p style="max-height: 30px" id="productDescription-<%= product.id %>"><%= product.description %></p></div>
             <div class="container pb-1 pt-1">
@@ -52,7 +54,7 @@
               </div>
             </div>
             <button
-              class="btn btn-aipota-primary btn-sm text-white btn-block addItem" id="addItemButton-<%= product.id %>">
+              class="btn btn-primary btn-sm text-white btn-block addItem" id="addItemButton-<%= product.id %>">
               Agregar<i class="bi bi-cart4"></i>
             </button>
           </div>
@@ -67,7 +69,7 @@
           remote: true
         } do %>
           <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-aipota" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
+            <div class="progress-bar progress-bar-striped bg-aipota-green" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0"></div>
           </div>
         <% end %>
       </div>
@@ -75,11 +77,15 @@
         <!--TODO no funciona el style porque se esta mostrando inline,habria que mostrar display-block o display-inline-block-->
         <%= link_to products_cart_path, {
           remote: true,
-          class: 'btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle',
-          'style' => 'width: 73px; height: 73px',
+          class: 'btn btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle tam-button-cart',
           id: 'cart-button'
         } do %>
-          <i class="bi bi-cart4" style="font-size: 32px;"></i>
+          <i class="bi bi-cart4 button-cart text-white" style="font-size: 32px;">
+            <div id="notification" style="display:none">
+              <i class="bi bi-circle-fill button-comment"></i>
+              <b><label class="button-num"></label></b>
+            </div>
+          </i>
         <% end %>
       </div>
     </div>

@@ -1,0 +1,124 @@
+<div class="modal fade" id="map-modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-blue">Mapa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 200px">
+          <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                  style="border:0" allowfullscreen></iframe>
+        </div-->
+        <p>
+          <div id="map2"></div>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn my-button-primary text-color-secondary mx-1" data-dismiss="modal" onclick="cancelMap()">Cancelar</button>
+        <button type="button" class="btn btn-aipota-primary my-button-primary text-white mx-1" data-dismiss="modal" onclick="saveMap()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function initMap2() {
+        let lat = document.getElementById('order_latitude').value;
+        let lng = document.getElementById('order_longitude').value;
+        //if not defined create default position
+        if (!lat || !lng){
+            let geoSuccess = function(position) {
+                lat = position.coords.latitude;
+                lng = position.coords.longitude;
+                document.getElementById('order_latitude').value = position.coords.latitude;
+                document.getElementById('order_longitude').value = position.coords.longitude;
+                load(lat,lng)
+            };
+            navigator.geolocation.getCurrentPosition(geoSuccess);
+        }else{
+            load(lat,lng)
+        }
+
+        function load(lat, lng) {
+            let myCoords = new google.maps.LatLng(lat, lng);
+            let mapOptions = {
+                center: myCoords,
+                zoom: 14
+            };
+            let map = new google.maps.Map(document.getElementById('map2'), mapOptions);
+
+            let marker = new google.maps.Marker({
+                position: myCoords,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                draggable: true
+            });
+
+            // refresh marker position and recenter map on marker
+            function refreshMarker(){
+                let lat = document.getElementById('order_latitude').value;
+                let lng = document.getElementById('order_longitude').value;
+                let myCoords = new google.maps.LatLng(lat, lng);
+                marker.setPosition(myCoords);
+                map.setCenter(marker.getPosition());
+            }
+            //when input values change call refreshMarker
+            document.getElementById('order_latitude').onchange = refreshMarker;
+            document.getElementById('order_longitude').onchange = refreshMarker;
+
+            //when marker is dragged update input values
+            marker.addListener('drag', function() {
+                let latlng = marker.getPosition();
+                let newlat=(Math.round(latlng.lat()*1000000))/1000000;
+                let newlng=(Math.round(latlng.lng()*1000000))/1000000;
+                document.getElementById('order_latitude').value = newlat;
+                document.getElementById('order_longitude').value = newlng;
+            });
+
+            //When drag ends, center (pan) the map on the marker position
+            marker.addListener('dragend', function() {
+                map.panTo(marker.getPosition());
+            });
+        }
+    }
+
+    initMap2();
+
+    function saveMap() {
+        $('#latitude').val($('#order_latitude').val());
+        $('#longitude').val($('#order_longitude').val());
+        geoFindMe()
+    }
+
+    function cancelMap(){
+       $('#order_latitude').val($('#latitude').val());
+       $('#order_longitude').val($('#longitude').val());
+    }
+
+    function geoFindMe() {
+        let longitud = $('#order_longitude').val();
+        let latitud = $('#order_latitude').val();
+        let input = latitud+','+longitud;
+        var latlngStr = input.split(',', 2);
+        var latlng = {
+            lat: parseFloat(latlngStr[0]),
+            lng: parseFloat(latlngStr[1])
+        };
+        var geocoder = new google.maps.Geocoder;
+
+        geocoder.geocode({
+            'location': latlng
+        }, function(results, status) {
+            // si la solicitud fue exitosa
+            if (status === google.maps.GeocoderStatus.OK) {
+                // si encontró algún resultado.
+                if (results[1]) {
+                    $('#order_location').val(results[1].formatted_address);
+                }
+            }
+        });
+    }
+</script>

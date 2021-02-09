@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <%= render partial: "welcome/navbar" %>
+</div>
+<div class="my-background">
+  <div class="mt-5 pt-5 mt-sm-5 pt-sm-5 container text-center">
+    <h2 class="text-blue p-4">Procesar Compra</h2>
+    <%= render 'form', order: @order %>
+  </div>
+</div>
