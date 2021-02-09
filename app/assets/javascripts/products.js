@@ -1,6 +1,7 @@
 const maxQuantity = 10;
 const defaultMessage = '1 Un.';
-
+localStorage.setItem("notification", 0);
+paintProgressBar();
 /**
  * Get the product ID number from the id attribute
  * @param text
@@ -47,6 +48,15 @@ $(function () {
     });
     // add item to cart
     $('.addItem').click(() => {
+        //notificaciones
+        if(localStorage.getItem("notification") == null){
+            localStorage.setItem("notification", 1);
+        }
+        localStorage.setItem('notification',parseInt(localStorage.getItem('notification'))+1);
+        $('.button-num').text(localStorage.getItem('notification'));
+        mostrarNotification();
+        //fin notificaciones
+
         let product_id = getIdFromText(this.activeElement.id);
         let product = {
             id: product_id,
@@ -64,13 +74,37 @@ $(function () {
         });
         localStorage.setItem('total', total);
         localStorage.setItem('cart-items', JSON.stringify(items));
-        let presupuesto_int = parseInt(localStorage.getItem("maximum-budget").toString().replace(".", ""))
-        let new_porcentaje = (total * 100) / presupuesto_int
-        $('.progress-bar').css('width', new_porcentaje+'%').attr('aria-valuenow', total);
+
+        paintProgressBar();
     });
     // clear the cart
     // TODO no remueve el item del local storage
     $('#clearCart').click(() => {
         localStorage.removeItem('cart-items');
     });
+
+    //notificaciones
+    $('#cart-button').click(() => {
+        localStorage.setItem("notification", 0);
+        ocultarNotification();
+    });
+    //fin notificaciones
+
 });
+
+function ocultarNotification(){
+    document.getElementById('notification').style.display = 'none';
+}
+
+function mostrarNotification(){
+    document.getElementById('notification').style.display = 'block';
+}
+
+function paintProgressBar(){
+    if(localStorage.getItem('maximum-budget') != null && localStorage.getItem('maximum-budget') !== ''){
+        let total = localStorage.getItem('total');
+        let presupuesto_int = parseInt(localStorage.getItem("maximum-budget").toString().replace(".", ""));
+        let new_porcentaje = (total * 100) / presupuesto_int;
+        $('.progress-bar').css('width', new_porcentaje+'%').attr('aria-valuenow', total);
+    }
+}
