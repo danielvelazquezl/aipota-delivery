@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
     @products = @filterrific.find.page(params[:page])
 
-    render :index, locals: {supermarket: supermarket, last_checked: last_checked}
+    render :index, locals: { supermarket: supermarket, last_checked: last_checked }
   end
 
   # GET /products/1
@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
       @cart = Cart.create
       session[:cart_id] = @cart.id
     end
+    @supermarket_id = params[:supermarket_id]
     respond_to do |format|
       format.js
     end
@@ -58,7 +59,7 @@ class ProductsController < ApplicationController
       select_options: {
         with_category: Product.product_category.options
       },
-      )) || return
+    )) || return
     @products = @filterrific.find.page(params[:page])
     if params[:supermarket_id]
       supermarket = Supermarket.find(params[:supermarket_id])
@@ -71,7 +72,7 @@ class ProductsController < ApplicationController
       params[:products] ||= @products
       return index
     else
-      render :filter, locals: {filterrific: @filterrific, supermarket: supermarket, last_checked: last_checked}
+      render :filter, locals: { filterrific: @filterrific, supermarket: supermarket, last_checked: last_checked }
     end
 
   end

@@ -66,10 +66,8 @@
                 class="btn my-button-primary text-color-secondary mx-1" id="clearCart"
                 data-dismiss="modal">Vaciar
               </button>
-              <button
-                type="button"
-                class="btn btn-aipota-primary my-button-primary text-white mx-1">Comprar
-              </button>
+              <%= link_to 'Comprar', new_order_path(:supermarket_id => @supermarket_id),
+                          class: 'btn btn-aipota-primary my-button-primary text-white mx-1' %>
             </div>
           </div>
         </div>

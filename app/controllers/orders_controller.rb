@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    id = params['supermarket_id']
+    @order.supermarket_id = Integer(id)
   end
 
   def map
@@ -21,23 +23,20 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @orders = Order.all
 
-    @order.total = 15000
-    @order.supermarket_id = 1
     @order.order_date = Time.now
     @order.status = 'in_process'
 
     respond_to do |format|
       if @order.save
         format.html { render :index }
-        format.json { render :index }
       else
         format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_order
     @order = Order.find(params[:id])

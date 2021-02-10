@@ -1,4 +1,4 @@
-$('#cart-modal-content').html("<%= j render 'products/cart', cart: @cart, layout: false %>");
+$('#cart-modal-content').html("<%= j render 'products/cart', cart: @cart, supermarket_id: @supermarket_id , layout: false %>");
 /**
  * Read the local storage and insert the items to the cart table
  */
@@ -22,20 +22,20 @@ if (JSON.parse(localStorage.getItem('cart-items')) != null) {
 $('#total-label').text((localStorage.getItem('total') ? localStorage.getItem('total') : 0) + " Gs.");
 $('#cart-modal').modal('show');
 
-if(localStorage.getItem('maximum-budget') == null || localStorage.getItem('maximum-budget') === ''){
+if (localStorage.getItem('maximum-budget') == null || localStorage.getItem('maximum-budget') === '') {
     ocultarCartMaximumBudget();
-}else{
+} else {
     let presupuesto_int = parseInt(localStorage.getItem("maximum-budget").toString().replace(".", ""));
     $('#maximum-budget-label').text((localStorage.getItem('maximum-budget') ?
         presupuesto_int : 0) + " Gs.");
     mostrarCartMaximumBudget();
 }
 
-function ocultarCartMaximumBudget(){
+function ocultarCartMaximumBudget() {
     document.getElementById('cart-maximum-budget').style.display = 'none';
 }
 
-function mostrarCartMaximumBudget(){
+function mostrarCartMaximumBudget() {
     document.getElementById('cart-maximum-budget').style.display = 'block';
 }
 
