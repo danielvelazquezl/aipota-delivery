@@ -30,7 +30,7 @@
           <div class="container">
             <div class="bg-white pb-sm-3 pt-sm-3 pt-2 pb-2 rounded"><%= image_tag(product.image, size: "73x74") %></div>
             <div class="pb-1" style="text-align: right">
-              <p class="text-blue" id="productPrice-<%= product.id %>"><%= number_with_delimiter(product.price,delimiter: ".") %> Gs.</p></div>
+              <p class="text-blue" id="productPrice-<%= product.id %>"><%= product.price %> Gs.</p></div>
             <div style="text-align: left">
               <p style="max-height: 30px" id="productDescription-<%= product.id %>"><%= product.description %></p></div>
             <div class="container pb-1 pt-1">

@@ -19,14 +19,15 @@ if (JSON.parse(localStorage.getItem('cart-items')) != null) {
     }
 }
 
-$('#total-label').text(localStorage.getItem('total') ? localStorage.getItem('total') : 0 + " Gs.");
+$('#total-label').text((localStorage.getItem('total') ? localStorage.getItem('total') : 0) + " Gs.");
 $('#cart-modal').modal('show');
 
 if(localStorage.getItem('maximum-budget') == null || localStorage.getItem('maximum-budget') === ''){
     ocultarCartMaximumBudget();
 }else{
-    $('#maximum-budget-label').text(localStorage.getItem('maximum-budget') ?
-        localStorage.getItem('maximum-budget') : 0 + " Gs.");
+    let presupuesto_int = parseInt(localStorage.getItem("maximum-budget").toString().replace(".", ""));
+    $('#maximum-budget-label').text((localStorage.getItem('maximum-budget') ?
+        presupuesto_int : 0) + " Gs.");
     mostrarCartMaximumBudget();
 }
 
@@ -37,3 +38,8 @@ function ocultarCartMaximumBudget(){
 function mostrarCartMaximumBudget(){
     document.getElementById('cart-maximum-budget').style.display = 'block';
 }
+
+$('#clearCart').click(() => {
+    localStorage.removeItem('cart-items');
+    localStorage.removeItem('total');
+});
