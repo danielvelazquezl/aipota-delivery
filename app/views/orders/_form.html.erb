@@ -1,58 +1,93 @@
 <%= form_with(model: order, local: true) do |form| %>
-  <div class="form-group row justify-content-center">
-    <label class="col-5 col-sm-2 text-left">Nombre y Apellido</label>
-    <div class="col col-sm-4">
-      <%= form.text_field :user, class: "form-control", required: "required" %>
-    </div>
-  </div>
-
-  <div class="form-group row justify-content-center">
-    <label class="col-5 col-sm-2 text-left">Ubicación</label>
-    <!--div class="col col-sm-4">
-      <input type="text" class="form-control">
-    </div-->
-
-    <div class="input-group col col-sm-4">
-      <!--input type="text" class="form-control number-format"-->
-      <%= form.text_field :location ,class: "form-control", required: "required" %>
-      <div class="input-group-append">
-        <%= link_to orders_map_path, {
-          remote: true,
-          class: 'btn my-button-blue'
-        } do %>
-          <i class="bi bi-geo-alt text-light"></i>
-        <% end %>
+  <form>
+    <!--name section-->
+    <div class="form-group row justify-content-center">
+      <label class="col-5 col-sm-2 text-left">Nombre y Apellido</label>
+      <div class="col col-sm-4">
+        <%= form.text_field :user, class: "form-control", required: "required" %>
       </div>
     </div>
-  </div>
-
-  <%= form.hidden_field :latitude ,class: "form-control" %>
-  <%= form.hidden_field :longitude ,class: "form-control" %>
-
-  <input type="hidden" id="latitude">
-  <input type="hidden" id="longitude">
-
-  <div class="form-group row justify-content-center">
-    <label class="col-5 col-sm-2 text-left">RUC</label>
-    <div class="col col-sm-4">
-      <input type="text" class="form-control">
+    <!--location section-->
+    <div class="form-group row justify-content-center">
+      <label class="col-5 col-sm-2 text-left">Ubicación</label>
+      <div class="input-group col col-sm-4">
+        <%= form.text_field :location, class: "form-control", required: "required" %>
+        <div class="input-group-append">
+          <%= link_to orders_map_path, {
+            remote: true,
+            class: 'btn my-button-blue'
+          } do %>
+            <i class="bi bi-geo-alt text-light"></i>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="form-group row justify-content-center">
-    <label class="col-5 col-sm-2 text-left">Teléfono</label>
-    <div class="col col-sm-4">
-      <input type="text" class="form-control">
+    <%= form.hidden_field :latitude, class: "form-control" %>
+    <%= form.hidden_field :longitude, class: "form-control" %>
+    <input type="hidden" id="latitude">
+    <input type="hidden" id="longitude">
+    <!--RUC section-->
+    <div class="form-group row justify-content-center">
+      <label class="col-5 col-sm-2 text-left">RUC</label>
+      <div class="col col-sm-4">
+        <input type="text" class="form-control">
+      </div>
     </div>
-  </div>
-
-  <div class="row justify-content-end pt-4">
-    <div class="col-auto">
-      <button type="button" class="btn my-button-primary text-color-secondary mx-1">Cancelar</button>
-      <%= form.submit 'Comprar', class: "btn btn-aipota-primary my-button-primary text-white mx-1" %>
+    <!--phone section-->
+    <div class="form-group row justify-content-center">
+      <label class="col-5 col-sm-2 text-left">Teléfono</label>
+      <div class="col col-sm-4">
+        <input type="text" class="form-control">
+      </div>
     </div>
-  </div>
-
-<%end %>
-
+    <!--table section-->
+    <div class="row justify-content-center pt-2">
+      <div class="col-12 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover table-borderless">
+                <thead class="cart-table-head">
+                <tr>
+                  <th scope="col" class="text-left">Productos</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Subtotal</th>
+                </tr>
+                </thead>
+                <tbody id="order-table-body">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--total section-->
+    <div class="row justify-content-center pt-4">
+      <div class="col-12 col-md-6">
+        <div class="card card-border-blue">
+          <div class="card-body py-3">
+            <div class="container">
+              <div class="row text-blue font-weight-bold">
+                <div class="col-7 text-left">Total</div>
+                <div class="col-5 text-right" id="order-total-label">0</div>
+                <%= form.hidden_field :total, id: 'order-total-input' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= form.hidden_field :supermarket_id %>
+    <!--buttons section-->
+    <div class="row justify-content-center py-4">
+      <div class="col-12 col-md-6 text-right">
+        <button type="button" class="btn my-button-primary text-color-secondary mx-1">Cancelar</button>
+        <%= form.submit 'Comprar',
+                        class: "btn btn-aipota-primary my-button-primary text-white mx-1",
+                        id: 'buy-button' %>
+      </div>
+    </div>
+  </form>
+<% end %>
 <div id="map-modal-content"></div>

@@ -75,7 +75,7 @@
       </div>
       <div class="col-3 col-sm-1 pt-2">
         <!--TODO no funciona el style porque se esta mostrando inline,habria que mostrar display-block o display-inline-block-->
-        <%= link_to products_cart_path, {
+        <%= link_to products_cart_path(:supermarket_id => params[:supermarket_id]), {
           remote: true,
           class: 'btn btn-lg btn-aipota-primary text-white rounded-circle border border-white align-middle tam-button-cart',
           id: 'cart-button'
