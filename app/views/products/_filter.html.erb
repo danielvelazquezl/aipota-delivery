@@ -8,6 +8,12 @@
         </button>
       </div>
       <%= form_for_filterrific filterrific do |f| %>
+        <div class="modal-footer">
+          <%= f.hidden_field :supermarket_id, value: supermarket.id %>
+          <%= f.submit 'Limpiar filtros', :class=>'btn btn-outline-primary text-blue' %>
+        </div>
+      <% end %>
+      <%= form_for_filterrific filterrific do |f| %>
       <div class="modal-body">
         <!--CONTENIDO-->
         <div class="form-group col-12">
