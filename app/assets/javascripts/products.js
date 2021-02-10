@@ -77,11 +77,6 @@ $(function () {
 
         paintProgressBar();
     });
-    // clear the cart
-    // TODO no remueve el item del local storage
-    $('#clearCart').click(() => {
-        localStorage.removeItem('cart-items');
-    });
 
     //notificaciones
     $('#cart-button').click(() => {
