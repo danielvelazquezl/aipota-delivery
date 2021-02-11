@@ -22,7 +22,7 @@
           <% @orders.each do |order| %>
             <tr>
               <td class="pt-4"><%= order.order_date.strftime("%d-%m-%Y") %></td>
-              <td class="text-left pt-4"><% order.supermarket.name %> La Familia</td>
+              <td class="text-left pt-4"><%= order.supermarket_name %></td>
               <td class="pt-4"><label class=" badge badge-pill badge-<%= get_status_color(order.status) %>"><%= order.status.text %></label></td>
               <td>
                 <button class="btn btn-sm btn-link text-color-icon-edit" title="Editar"><i class="bi bi-pencil-square"></i></button>

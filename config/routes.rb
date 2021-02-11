@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   # orders routes
   get 'orders/map', to: 'orders#map'
+  get 'orders/index_received', to: 'orders#index_received'
+  get 'orders/filter', to: 'orders#filter'
   resources :orders
 
   resources :offers
