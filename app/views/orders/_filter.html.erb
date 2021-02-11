@@ -9,13 +9,28 @@
           <!--CONTENIDO-->
           <div class="form-group col-12">
             <div class="row has-search d-flex align-items-center results-block">
-              <label class="text-blue">Por Negocio</label>
-              <%= f.text_field :by_supermarket, class: 'form-control', placeholder: 'Busca un super',
-                               id: 'main-search-input' %>
-              <label class="text-blue">Desde</label>
-              <%= f.date_field :date_from, class: 'form-control'%>
-              <label class="text-blue">Hasta</label>
-              <%= f.date_field :date_to, class: 'form-control'%>
+              <div class="col">
+                <div class="row">
+                  <label class="text-blue">Por Negocio</label>
+                  <%= f.text_field :by_supermarket, class: 'form-control', placeholder: 'Busca un super',
+                                   id: 'main-search-input' %>
+                </div>
+                <div class="row mt-3">
+                  <label class="text-blue">Por Fecha</label>
+                </div>
+                <div class="row">
+                  <div class="col pl-0 p-sm-0">
+                    <label class="text-black">Desde</label>
+                    <%= f.date_field :date_from, class: 'form-control' %>
+                    <small id="dateHelp" class="form-text text-muted d-inline d-sm-none">Ej: 01/01/2021</small>
+                  </div>
+                  <div class="col pl-2 pr-0 p-sm-0">
+                    <label class="text-black">Hasta</label>
+                    <%= f.date_field :date_to, class: 'form-control' %>
+                    <small id="dateHelp" class="form-text text-muted d-inline d-sm-none">Ej: 01/01/2021</small>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
