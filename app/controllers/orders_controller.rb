@@ -6,6 +6,15 @@ class OrdersController < ApplicationController
     render :index, locals: { orders: @orders }
   end
 
+  def index_received
+    if params[:orders].present?
+      @orders = params[:orders].order(order_date: :desc)
+    else
+      @orders = Order.where(status: 'received').order(order_date: :desc)
+    end
+    render :index_received, locals: { orders: @orders }
+  end
+
   def new
     @order = Order.new
   end
@@ -13,6 +22,21 @@ class OrdersController < ApplicationController
   def map
     respond_to do |format|
       format.js
+    end
+  end
+
+  def filter
+    (@filterrific = initialize_filterrific(
+      Order,
+      params[:filterrific],
+      )) || nil
+
+    @orders = @filterrific.find.page(params[:page])
+    if params[:filterrific]
+      params[:orders] = @orders
+      return index_received
+    else
+      render :filter, locals: {filterrific: @filterrific}
     end
   end
 
