@@ -77,3 +77,10 @@ db/schema.rb
 # Gemfile.lock
 Gemfile.lock
 *.lock
+
+# images for products/supermarkets
+app/assets/images
+
+# doc page
+docs/node_modules
+docs/package-lock.json
